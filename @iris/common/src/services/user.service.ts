@@ -1,9 +1,21 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { UserEntity } from '../db';
 import { UserCreateData } from '../shared/types';
+import { ENV } from '../shared/configs';
+import * as jwt from 'jsonwebtoken';
 
 @Injectable()
 export class UserService {
+  getUserJwt(userKey: number, email: string) {
+    return jwt.sign(
+      {
+        userKey,
+        email,
+      },
+      ENV.JWT_SECRET,
+      { expiresIn: '7d' }
+    );
+  }
   async read(email: string) {
     const user = await UserEntity.findOne({
       where: { email },
@@ -17,7 +29,7 @@ export class UserService {
       throw new Error('Invalid email/password');
     }
     return {
-      token: user.token,
+      token: this.getUserJwt(user.userKey, user.email),
       type: 'Bearer',
     };
   }

@@ -50,17 +50,4 @@ export class UserEntity extends BaseEntity {
   async comparePassword(attempt: string): Promise<boolean> {
     return bcrypt.compare(attempt, this.password);
   }
-
-  get token(): string {
-    const { userKey, email } = this;
-
-    return jwt.sign(
-      {
-        userKey,
-        email,
-      },
-      'asdf',
-      { expiresIn: '7d' }
-    );
-  }
 }

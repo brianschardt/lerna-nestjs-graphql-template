@@ -31,6 +31,7 @@ input LoginInput {
 type Query {
   login(input: LoginInput): Auth
   whoami: User
+  test: String
 }
 
 type Mutation {

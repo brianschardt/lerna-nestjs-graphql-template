@@ -18,6 +18,10 @@ export class UserResolver {
   }
 
   @Query()
+  async test() {
+    return 'testaksdjfalhds';
+  }
+  @Query()
   async login(@Args('input') input: LoginInput) {
     return await this.userService.login(input.email, input.password);
   }

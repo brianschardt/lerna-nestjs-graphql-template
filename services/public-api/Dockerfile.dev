@@ -1,0 +1,20 @@
+FROM node:10.16.2-alpine
+
+WORKDIR /usr/src/app
+
+RUN yarn global add lerna
+
+COPY package.json .
+COPY yarn.lock .
+COPY lerna.json .
+
+COPY @iris/common/package.json ./@iris/common/package.json
+COPY services/public-api/package.json ./services/public-api/package.json
+
+RUN yarn bootstrap
+
+COPY . .
+
+CMD cd services/public-api; yarn run start:dev
+
+

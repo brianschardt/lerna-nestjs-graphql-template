@@ -5,9 +5,11 @@
     "services/*"
   ],
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "iris:build:watch": "lerna run build:watch --scope=@iris/*",
-    "new-version": "learna version --conventional-commits --yes"
+    "new-version": "lerna version --conventional-commits --yes",
+    "api:run": "lerna run start:dev --scope=public-api"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.26.0",

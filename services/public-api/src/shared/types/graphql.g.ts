@@ -34,6 +34,7 @@ export interface IMutation {
 export interface IQuery {
     login(input?: LoginInput): Auth | Promise<Auth>;
     whoami(): User | Promise<User>;
+    test(): string | Promise<string>;
 }
 
 export interface User {

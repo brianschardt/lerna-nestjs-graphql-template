@@ -18,6 +18,14 @@ yarn
 yarn bootstrap
 ```
 
+#### Build Iris Dependencies
+
+Build dependencies for services
+
+```
+yarn iris:build
+```
+
 #### Docker Setup
 
 In order to get started you must have docker installed on your machine

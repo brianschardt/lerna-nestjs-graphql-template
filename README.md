@@ -37,14 +37,9 @@ Go to localhost:4000/graphql
 
 ### Db migrations
 
-In order to run the migrations cd into the @iris/common package
+In order to run the migrations cd into the @iris/common package. Copy the .env.example and name it .env in the root directory of the package, and place appropriate values
 
 ```
 cd @iris/common
-```
-
-copy the .env.example and name it .env in the root directory of the package, and place appropriate values
-
-```
 yarn typeorm migrations:run
 ```

@@ -1,4 +1,4 @@
- require('dotenv').config();
+require('dotenv').config();
 //Note this is just for the CLI not used for prod because of compliation error.
 module.exports = {
   name: 'default',
@@ -11,15 +11,11 @@ module.exports = {
   synchronize: false,
   dropSchema: false,
   logging: true,
-  entities: [
-    'src/**/*.entity.ts'
-  ],
-  migrations: [
-    'src/db/migrations/*.ts'
-  ],
+  entities: ['src/**/*.entity.ts'],
+  migrations: ['src/db/migrations/*.ts'],
   seeds: ['src/db/seeds/**/*.seed.ts'],
   factories: ['src/db/factories/**/*.factory.ts'],
   cli: {
-    migrationsDir: 'src/db/migrations'
-  }
+    migrationsDir: 'src/db/migrations',
+  },
 };

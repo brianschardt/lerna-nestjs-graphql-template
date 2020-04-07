@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "build:watch": "tsc --watch"
+    "build:watch": "tsc --watch",
+    "typeorm": "ts-node ./../../node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "@nestjs/common": "^7.0.7",

@@ -2,12 +2,13 @@ import { Resolver, Query, Args, Mutation, Context } from '@nestjs/graphql';
 import { UseGuards } from '@nestjs/common';
 import { AuthGuard } from '../../../shared/guards/auth.guard';
 import { UserCreateInput, LoginInput } from '../../../shared/types';
-import { UserService, UserEntity} from '@iris/common';
+import { UserService, UserEntity, TestService} from '@iris/common';
 
 @Resolver()
 export class UserResolver {
   constructor(
     private userService: UserService,
+    private testService: TestService,
   ) {}
 
   @Query()
@@ -19,7 +20,7 @@ export class UserResolver {
 
   @Query()
   async test() {
-    return 'testaksdjfalhds';
+    return this.testService.test();
   }
   @Query()
   async login(@Args('input') input: LoginInput) {

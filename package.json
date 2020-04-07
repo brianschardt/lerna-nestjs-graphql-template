@@ -7,7 +7,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
-    "yarn iris:build": "lerna run build --scope=@iris/*",
+    "iris:build": "lerna run build --scope=@iris/*",
     "iris:build:watch": "lerna run build:watch --scope=@iris/*",
     "new-version": "lerna version --conventional-commits --yes",
     "api:run": "lerna run start:dev --scope=public-api"
